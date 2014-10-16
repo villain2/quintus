@@ -8,15 +8,19 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/quintus.js"></script>
     
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="mainContainer">
-        <h1>Hello</h1>
+    <h1>Quintus Test Game</h1>
+    <div class="mainContainer" data-ng-app="testgame">
+        <div class="gameContainer" startgame>
+        </div>
     </div>
 </body>
 </html>

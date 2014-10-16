@@ -8,7 +8,5 @@ h1, h2, h3, h4, h5 {
   font-size: 2.5em;
   color: red;
   line-height: 1.02em;
-  font-family: 'Georgia';
+  font-family: "Georgia";
   text-transform: uppercase; }
-
-/*# sourceMappingURL=styles.css.map */
