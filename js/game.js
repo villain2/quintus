@@ -1,4 +1,4 @@
-window.addEventListener("load",function() {
+/*window.addEventListener("load",function() {
     var Q = Quintus().setup();
     
     Q.Class.extend('DDClass', {
@@ -8,7 +8,7 @@ window.addEventListener("load",function() {
         },
        doIt: function() 
         { 
-            alert("Doin it!"); 
+            //alert("Doin it!"); 
         }  
     });
 
@@ -18,5 +18,5 @@ window.addEventListener("load",function() {
     console.log(myInstance.className);
     console.log(myInstance instanceof Q.Class);
     console.log(myInstance instanceof Q.DDClass);
-});
+});*/
 

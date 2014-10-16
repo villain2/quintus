@@ -1,0 +1,72 @@
+/**
+ * @ngdoc function 
+ * @name Quintus
+ * @description
+ *
+ * Baseline objects and variables for Quintus Test Game App.
+**/
+
+(function (TestGame, undefined)
+{
+    TestGame.Version            = "1.0.0";
+    TestGame.Factory            = {};
+    TestGame.Services           = {};
+    TestGame.Modules            = {};
+    TestGame.Configs            = {};
+    TestGame.Controllers        = {};
+    TestGame.Directives         = {};
+} (window.TestGame = window.TestGame || {} ));
+
+(function (Modules, undefined)
+{
+    Modules.TestGame = angular.module('testgame', ['ngRoute']);
+} (TestGame.Modules = TestGame.Modules || {} ));
+
+(function (Configs, undefined)
+ {
+    TestGame.Modules.TestGame.config([function (){
+        
+    }]);
+} ( TestGame.Configs = TestGame.Configs || {} ));
+
+(function (Directives, undefined)
+ {
+    /**
+     * @ngdoc directive
+     * @name TestGame:start
+     * @element ANY
+     * @restrict A
+     * @description
+     *
+     * Start the application with an intro screen.
+    **/
+    TestGame.Modules.TestGame.directive('startgame', [ function (){
+        return {
+            restrict: 'A',
+            transclude: true,
+            link: function (scope, elm, attrs)
+            {
+                console.log('start game');
+                window.addEventListener("load", function ()
+                {
+                   var Q                  = Quintus().setup();
+                    Q.Class.extend('DDClass', {
+                        init: function (){
+                            console.log('my class instance created');
+                        },
+                        doIt: function ()
+                        {
+                            console.log('Doing It!!!');
+                        }
+                    });
+                    
+                    var myInstance = new Q.DDClass();
+                    console.log(myInstance.className);
+                    console.log(myInstance instanceof Q.Class);
+                    console.log(myInstance instanceof Q.DDClass);
+                    
+                });
+            }
+        }
+    }]);
+} (TestGame.Directives = TestGame.Directives || {} ));
