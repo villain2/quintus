@@ -1,0 +1,28 @@
+{
+  "name": "quintus",
+  "version": "1.0.0",
+  "homepage": "https://github.com/villain2/quintus",
+  "authors": [
+    "K.C. Hunter <kchunter@connectionseducation.com>"
+  ],
+  "description": "Test game development",
+  "main": "index.html",
+  "keywords": [
+    "gaming",
+    "games",
+    "html5",
+    "jquery",
+    "javascript",
+    "angularjs",
+    "quintus"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
