@@ -1,6 +1,6 @@
 /**
  * @ngdoc function 
- * @name Quintus
+ * @name TestGame
  * @description
  *
  * Baseline objects and variables for Quintus Test Game App.
@@ -15,4 +15,7 @@
     TestGame.Configs            = {};
     TestGame.Controllers        = {};
     TestGame.Directives         = {};
+    window.addEventListener('load', function () {
+        TestGame.Q = Quintus().setup();
+    });
 } (window.TestGame = window.TestGame || {} ));
