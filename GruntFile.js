@@ -11,7 +11,7 @@ module.exports = function (grunt)
             dist: {
                 src: [
                     'js/app.js', 'js/modules.js', 'js/configs.js',
-                    'js/general/*.js'
+                    'js/general/*.js', 'js/weapons/*.js'
                 ],
                 dest: 'js/<%= pkg.name %>.js'
             }
@@ -37,6 +37,10 @@ module.exports = function (grunt)
                 files: ['css/*.scss'],
                 tasks: ['sass']
             }
+        },
+        
+        ngdocs: {
+            all: ['js/**/*.js']
         }
         
     });
@@ -44,6 +48,7 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-ngdocs');
     
     grunt.registerTask('default', ['watch']);
 }
