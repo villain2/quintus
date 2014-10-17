@@ -3,6 +3,7 @@ composer.phar
 vendor/
 node_modules/
 bower_components/
+docs/
 
 # Local configs
 config/autoload/*.local.php
