@@ -5,6 +5,11 @@
     <script src="bower_components/quintus/lib/quintus.js"></script>
     <script src="bower_components/quintus/lib/quintus_sprites.js"></script>
     <script src="bower_components/quintus/lib/quintus_scenes.js"></script>
+    <script src="bower_components/quintus/lib/quintus_input.js"></script>
+    <script src="bower_components/quintus/lib/quintus_anim.js"></script>
+    <script src="bower_components/quintus/lib/quintus_2d.js"></script>
+    <script src="bower_components/quintus/lib/quintus_touch.js"></script>
+    <script src="bower_components/quintus/lib/quintus_ui.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
@@ -16,18 +21,7 @@
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
 
-<body>
-    <h1>Quintus Test Game</h1>
-    <div class="mainContainer" data-ng-app="thegame">
-        
-        <div class="gameContainer" startgame>
-            Score: {{score}}<br>
-            Lives: {{lives}}
-        </div>
-        
-        
-        
-        <div weapons></div>
-    </div>
+<body data-ng-app="thegame">
+    <div startgame></div>
 </body>
 </html>
