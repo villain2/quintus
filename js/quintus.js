@@ -15,9 +15,6 @@
     TestGame.Configs            = {};
     TestGame.Controllers        = {};
     TestGame.Directives         = {};
-    window.addEventListener('load', function () {
-        TestGame.Q = Quintus().setup();
-    });
 } (window.TestGame = window.TestGame || {} ));
 
 /**
@@ -80,9 +77,12 @@
             transclude: false,
             link: function (scope, elm, attrs)
             {
-                console.log('start game');
                 window.addEventListener('load', function () {
-                    var Q = window.Q = Quintus().include("Sprites, Scenes, Input, 2D, Touch, UI").setup({ width: 1388, scaleToFit: true}).controls().touch();
+                    var Q = window.Q = Quintus({development: true})
+                                        .include("Sprites, Scenes, Input, 2D, Touch, UI")
+                                        .setup({ maximize: true
+                                               })
+                                        .controls().touch();
                     
                     
                     
@@ -127,28 +127,6 @@
                             Q.stageScene("level1");
                         });
                     }
-                    
-                    /*Q.MovingSprite.extend("Ball", {
-                       draw: function (ctx) {
-                           ctx.fillStyle = "black";
-                           ctx.beginPath();
-                           ctx.arc(-this.p.cx,
-                                  -this.p.cy,
-                                  this.p.w/2, 0, Math.PI*2);
-                           ctx.fill();
-                       } 
-                    });
-                    
-                    var ball = window.ball = new Q.Ball({
-                        w: 20, h: 20, x: 30, y: 300,
-                        vx: 30, vy: -100, ax: 0, ay: 30
-                    });
-                    
-                    Q.gameLoop( function (dt) {
-                        Q.clear();
-                        ball.update(dt);
-                        ball.render(Q.ctx);
-                    });*/
                     
                     loadAssets();
                     

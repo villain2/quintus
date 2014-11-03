@@ -15,7 +15,4 @@
     TestGame.Configs            = {};
     TestGame.Controllers        = {};
     TestGame.Directives         = {};
-    window.addEventListener('load', function () {
-        TestGame.Q = Quintus().setup();
-    });
 } (window.TestGame = window.TestGame || {} ));
