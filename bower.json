@@ -1,0 +1,31 @@
+{
+  "name": "doriandelmontez10",
+  "version": "1.0.0",
+  "homepage": "https://github.com/villain2/quintus",
+  "authors": [
+    "K.C. Hunter <kchunter@connectionseducation.com>"
+  ],
+  "description": "Dorian Delmontez html5 game",
+  "keywords": [
+    "dorian",
+    "delmontez",
+    "html5",
+    "game",
+    "quintus"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.3.4",
+    "modernizr": "~2.8.3",
+    "bootstrap": "~3.3.1",
+    "jquery": "~2.1.1"
+  }
+}
