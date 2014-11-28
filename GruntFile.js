@@ -7,27 +7,29 @@ module.exports = function (grunt)
 				separator: "\n\n"
 			},
 			dist: {
-				src: ['src/js/**.js'],
-				dest: 'src/<%= pkg.name %>.js'
+				src: ['src/js/app.js', 'src/js/configs.js', 'src/js/modules.js',
+                      'src/js/**/*.js'],
+				dest: 'src/game/<%= pkg.name %>.js'
 			},
 			deps: {
 				src: [
 					'bower_components/modernizr/modernizr.js',
-					'bower_components/jquery/dist/jquery.js',
-					'bower_components/bootstrap/dist/js/bootstrap.js',
+					'bower_components//jquery/dist/jquery.min.js',
+					'bower_components/bootstrap/dist/js/bootstrap.min.js',
 					'bower_components/angular/angular.min.js',
+					'bower_components/angular-route/angular-route.min.js'
 				],
-				dest: 'src/<%= pkg.name %>-deps.js'
+				dest: 'src/game/<%= pkg.name %>-deps.js'
 			},
 			css: {
 				src: ['bower_components/bootstrap/dist/css/bootstrap.min.css',
 						'src/resources/css/styles.css'
 				],
-				dest: 'src/<%= pkg.name %>.css'
+				dest: 'src/game/<%= pkg.name %>.css'
 			},
 			map: {
-				src: ['bower_components/angularjs/angular.min.js.map'],
-				dest: 'src/angular.min.js.map'
+				src: ['bower_components/angular-route/angular-route.min.js.map'],
+				dest: 'src/game/angular-route.min.js.map'
 			}
 		},
 
