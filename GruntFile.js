@@ -11,6 +11,10 @@ module.exports = function (grunt)
                       'src/js/**/*.js'],
 				dest: 'src/game/<%= pkg.name %>.js'
 			},
+            deployJS: {
+                src: ['src/game/<%= pkg.name %>.js'],
+                dest: 'bin/<%= pkg.name %>.js'
+            },
 			deps: {
 				src: [
 					'bower_components/modernizr/modernizr.js',
@@ -21,16 +25,28 @@ module.exports = function (grunt)
 				],
 				dest: 'src/game/<%= pkg.name %>-deps.js'
 			},
+            deployDeps: {
+              src: 'src/game/<%= pkg.name %>-deps.js',
+              dest: 'bin/<%= pkg.name %>-deps.js'
+            },
 			css: {
 				src: ['bower_components/bootstrap/dist/css/bootstrap.min.css',
 						'src/resources/css/styles.css'
 				],
 				dest: 'src/game/<%= pkg.name %>.css'
 			},
+            deployCSS: {
+                src: ['src/game/<%= pkg.name %>.css'],
+                dest: 'bin/<%= pkg.name %>.css'
+            },
 			map: {
 				src: ['bower_components/angular-route/angular-route.min.js.map'],
 				dest: 'src/game/angular-route.min.js.map'
-			}
+			},
+            deployMap: {
+                src: ['src/game/angular-route.min.js.map'],
+                dest: 'bin/angular-route.min.js.map'
+            }
 		},
 
 		sass: {
@@ -40,6 +56,12 @@ module.exports = function (grunt)
 				}
 			}
 		},
+        
+        copy: {
+            main: {
+                expand: true, cwd: 'src/game/', src: '**', dest: 'bin/', filter: 'isFile'
+            }
+        },
 
 		watch: {
 			scripts: {
@@ -64,8 +86,16 @@ module.exports = function (grunt)
 	//tasks
 	grunt.registerTask('default', 'Default Task Alias', ['build']);
 
-	grunt.registerTask('build', 'Build the application', 
+	grunt.registerTask('dev', 'Build the application', 
 		['sass:dev',
 		'concat'
 		]);
+    
+    grunt.registerTask('build', 'Build the application',
+        ['concat:deployDeps',
+         'concat:deployJS',
+         'concat:deployCSS',
+         'concat:deployMap',
+         'copy:main'
+    ]);
 }
