@@ -7,7 +7,7 @@ module.exports = function (grunt)
 				separator: "\n\n"
 			},
 			dist: {
-				src: ['src/js/app.js', 'src/js/configs.js', 'src/js/modules.js',
+				src: ['src/js/app.js', 'src/js/modules.js', 'src/js/configs.js',
                       'src/js/**/*.js'],
 				dest: 'src/game/<%= pkg.name %>.js'
 			},
