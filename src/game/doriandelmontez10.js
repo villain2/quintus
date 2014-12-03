@@ -155,8 +155,8 @@
 
                   breakTile: function(col) {
                     if(col.obj.isA("TileLayer")) {
-                      if(col.tile == 24) { col.obj.setTile(col.tileX,col.tileY, 36); }
-                      else if(col.tile == 36) { col.obj.setTile(col.tileX,col.tileY, 24); }
+                      if(col.tile == 12) { col.obj.setTile(col.tileX,col.tileY, 24); }
+                      else if(col.tile == 24) { col.obj.setTile(col.tileX,col.tileY, 12); }
                     }
                   },
 

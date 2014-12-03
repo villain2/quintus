@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="200" height="20" tilewidth="70" tileheight="70">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="70" tileheight="70">
  <tileset firstgid="1" name="Tiles" tilewidth="70" tileheight="70" spacing="2">
   <image source="../images/tiles.png" width="914" height="936"/>
   <tile id="8">
@@ -84,7 +84,7 @@
    </properties>
   </tile>
  </tileset>
- <imagelayer name="Background" width="200" height="20">
+ <imagelayer name="Background" x="-11" y="-56">
   <image source="../images/bg.png"/>
  </imagelayer>
  <layer name="Collision" width="200" height="20">
@@ -737,7 +737,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="13"/>
    <tile gid="0"/>
    <tile gid="25"/>
    <tile gid="0"/>
@@ -4094,7 +4094,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="Doors" width="200" height="20">
+ <objectgroup name="Doors">
   <object gid="214" x="1190" y="840">
    <properties>
     <property name="id" value="door-1"/>
@@ -4108,7 +4108,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Sprites" width="200" height="20">
+ <objectgroup name="Sprites">
   <object gid="157" x="235" y="820"/>
   <object gid="176" x="1120" y="1120"/>
   <object gid="176" x="1190" y="1120"/>
