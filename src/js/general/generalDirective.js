@@ -26,7 +26,10 @@
                         // Maximize this game to whatever the size of the browser is
                         .setup({ maximize: true })
                         // And turn on default input controls and touch input (for UI)
-                        .controls(true).touch()
+                        .controls(true).touch();
+                    
+                Q.input.keyboardControls();
+                Q.input.joypadControls();
 
                 Q.SPRITE_PLAYER = 1;
                 Q.SPRITE_COLLECTABLE = 2;
@@ -47,6 +50,7 @@
                       strength: 100,
                       score: 0,
                       type: Q.SPRITE_PLAYER,
+                      bulletSpeed: 300,
                       collisionMask: Q.SPRITE_DEFAULT | Q.SPRITE_DOOR | Q.SPRITE_COLLECTABLE
                     });
 
@@ -59,7 +63,29 @@
                     this.on("sensor.tile","checkLadder");
 
                     Q.input.on("down",this,"checkDoor");
+                      
+                    Q.input.on("fire", this, "fire");
                   },
+                    
+                    fire: function ()
+                    {
+                        var p = this.p;
+                        var dx = 8,//Math.sin(p.angle * Math.PI/ 180),
+                            dy = -Math.cos(p.angle * Math.PI / 180);
+                        
+                        //fire to the left if turned
+                        if(this.p.vx < 0) {
+                            dx = -(dx);
+                        }
+                        this.stage.insert(
+                            new Q.Bullet({
+                                x: this.c.points[0][0],
+                                y: this.c.points[1][1] - 10,
+                                vx: dx * p.bulletSpeed,
+                                vy: -200//dx * p.bulletSpeed
+                            })
+                        );
+                    },
 
                   checkLadder: function(colObj) {
                     if(colObj.p.ladder) { 
@@ -97,7 +123,8 @@
                   },
 
                   step: function(dt) {
-                    var processed = false;
+                      var processed = false;
+                      
 
                     if(this.p.onLadder) {
                       this.p.gravity = 0;
@@ -185,6 +212,37 @@
                       Q.stageScene("level1");
                     }
                   }
+                });
+                
+                Q.Sprite.extend("Bullet", {
+                    init: function (p){
+                        this._super(p,{
+                            w:17,
+                            h:7,
+                            type: Q.SPRITE_BULLET,
+                            collisionMask: Q.SPRITE_ENEMY
+                        });
+                        this.add("2d");
+                        this.on("hit.spirte", this, "collision");
+                    },
+                    
+                    collision: function (col) {
+                        var objP = col.obj.p;
+                        console.log('hit target');
+                        col.obj.destroy();
+                        this.destroy();
+                    },
+                    
+                    draw: function (ctx) {
+                        ctx.fillStyle = "#F00";
+                        ctx.fillRect(-this.p.cx, -this.p.cy, this.p.w, this.p.h);
+                    },
+                    
+                    step: function (dt) {
+                        if(!Q.overlap(this, this.stage)) {
+                            this.destroy();
+                        }
+                    }
                 });
 
                 Q.Sprite.extend("Enemy", {
